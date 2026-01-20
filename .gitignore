@@ -1,0 +1,13 @@
+# Code editors
+.vscode/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Logs folder
+logs/
+
+# Private
+.env

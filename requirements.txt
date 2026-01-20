@@ -1,0 +1,15 @@
+# Network / API
+discord.py[speed]                                # discord.py     / discord API
+aiohttp[speedups]                                # aiohttp        / network
+
+# Parsers
+# pysimdjson                                       # simdjson       / JSON
+ruamel.yaml                                      # ruamel.yaml    / yaml
+packaging                                        # packaging      / versions
+python-dotenv                                    # dotenv         / .env
+
+# Logger
+rich                                             # rich           / console
+
+# Other
+fuzzywuzzy[speedup]                              # fuzzywuzzy     / for tips

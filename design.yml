@@ -1,0 +1,66 @@
+colors:
+  brand: "2b2d31"
+  error: "e74f4f"
+
+emojis:
+  # Icons
+  afk: "<:i_afk:1254868136612593705>"
+  bot: "<:i_bot:1254868138244182051>"
+  checkmark: "<:i_checkmark:1254868139389489163>"
+  clock: "<:i_clock:1254868141104824450>"
+  coins: "<:i_coins:1273380243956305961>"
+  created: "<:i_created:1254868144124596334>"
+  crown: "<:i_crown:1254868145634807919>"
+  channel_forum: "<:i_forum_channel:1254868147086033008>"
+  hammer: "<:i_hammer:1254868148793114750>"
+  image: "<:i_image:1254868489231929426>"
+  info: "<:i_info:1254868152341233694>"
+  lightning: "<:i_lightning:1254868490611855421>"
+  music: "<:i_music:1254868159664754700>"
+  channel_news: "<:i_news_channel:1254868161036292288>"
+  nitro: "<:i_nitro:1254868491908026403>"
+  channel_rules: "<:i_rules_channel:1254868165662609448>"
+  shield: "<:i_shield:1254868493208256523>"
+  channel_stage: "<:i_stage_channel:1254868170221551617>"
+  channel_text: "<:i_text_channel:1254868172671160330>"
+  tools: "<:i_tools:1254868494659354664>"
+  total_money: "<:i_total_money:1254868178002251959>"
+  user: "<:i_user:1254868179805671464>"
+  user_add: "<:i_user_add:1254868496018575390>"
+  users: "<:i_users:1254868183383281814>"
+  vault: "<:i_vault:1254868185652531320>"
+  channel_voice: "<:i_voice_channel:1254868497364811867>"
+  wallet: "<:i_wallet:1254868189980921856>"
+  joined: "<:i_joined:1254868154983645287>"
+  unknown: "<:i_unknown:1463219486092951575>"
+  heart: "<:i_heart:1463219489226363133>"
+  tea: "<:i_tea:1463221302520320082>"  # TODO
+
+  # Logos
+  discord_py: "<:l_discord_py:1254868528398336072>"
+  python: "<:l_python:1254868531036688434>"
+
+  # Statuses
+  dnd: "<:s_dnd:1254868567531192362>"
+  idle: "<:s_idle:1254868568856727572>"
+  offline: "<:s_offline:1254868570203095193>"
+  online: "<:s_online:1254868571314585691>"
+  streaming: "<:s_streaming:1254868572904362025>"
+
+  # Badges
+  active_dev: "<:b_active_developer:1254868825497931816>"
+  bug_hunter: "<:b_bug_hunter:1254868826844041276>"
+  early_supporter: "<:b_early_supporter:1254868831038341310>"
+  hypesquad_balance: "<:b_hypesquad_balance:1254868832380518450>"
+  hypesquad_bravery: "<:b_hypesquad_bravery:1254868833764904982>"
+  hypesquad_brilliance: "<:b_hypesquad_brilliance:1254868835341828136>"
+  hypesquad_events: "<:b_hypesquad_events:1254868836826747002>"
+  mod_programs_alumni: "<:b_mod_programs_alumni:1254868879499591885>"
+  partner: "<:b_partner:1254868843117940784>"
+  verified_bot_dev: "<:b_verified_bot_deveveloper:1254868847484342272>"
+  bug_hunter_gold: "<:b_bug_hunter_gold:1254868828286881894>"
+  staff: "<:b_discord_staff:1254868829570338876>"
+
+icons:
+  # Icons
+  tools: "https://i.imgur.com/SneIgJJ.png"

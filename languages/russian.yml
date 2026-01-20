@@ -1,0 +1,57 @@
+natural_name: "Русский"
+discord_locale: "ru"
+authors: [ { name: "stngularity", email: "stngularity@gmail.com", discord: "813065322453925940", github: "stngularity" } ]
+
+common:
+  footer: &made "Сделано с {e.heart} и {e.tea} [{developer}]({developer_url}) для всех!"
+
+categories:
+  info:
+    name: "Информация"
+    aliases: [ "инфо" ]
+    description: "Команды, предоставляющие какую-либо информацию"
+  
+commands:
+  # [ /help [command] [category] ] [ b!help [command | category] ] Command reference
+  help:
+    name: "хелп"
+    aliases: [ "помощь", "помоги" ]
+    description: "Справка по командам и категориям команд бота"
+    usage: "[команда | категория]"
+
+    arguments:
+      category:
+        name: "категория"
+        description: "Название категории команд"
+      
+      command:
+        name: "команда"
+        description: "Название команды бота"
+    
+    examples:
+    - values: null
+      brief: "Получить краткую справку по всем категориям бота и командам, которые к ним относятся"
+    - values: "help"
+      brief: "Получить полную справку по команде `{prefix}help`"
+    - values: "info"
+      brief: "Получить полную справку по категории `Информация`"
+    
+    response_home:
+      title: "Справка по командам"
+      comment: "Здесь Вы можете получить информацию о командах и их категориях! Чтобы посмотреть описание команд категории, нажмите на кнопку `Подробнее` рядом с категорией."
+      detail_button_name: "Подробнее"
+    
+    response_category:
+      title: "Справка по категории `{name}`"
+      back_button_name: "Назад"
+      detail_button_name: "Подробнее"
+    
+    response_command:
+      title: "Команда {command}"
+      fields:
+        aliases: "Другие названия: {aliases}"
+        requirements: "Требования: {requirements}"
+      
+      usage: "Использование"
+      examples: "Примеры"
+      footer: "`[]` — необязатный аргумент, `<>` - обязательный; `|` — вариант на выбор."

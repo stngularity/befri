@@ -1,0 +1,57 @@
+natural_name: "English"
+discord_locale: "en-US"
+authors: [ { name: "stngularity", email: "stngularity@gmail.com", discord: "813065322453925940", github: "stngularity" } ]
+
+common:
+  footer: &made "Made with {e.heart} & {e.tea} by [{developer}]({developer_url}) for everyone!"
+
+categories:
+  info:
+    name: "Information"
+    aliases: [ "informational" ]
+    description: "Commands that provide some kind of information"
+  
+commands:
+  # [ /help [command] [category] ] [ b!help [command | category] ] Command reference
+  help:
+    name: "help"
+    aliases: []
+    description: "Reference for bot commands and command categories"
+    usage: "[command | category]"
+
+    arguments:
+      category:
+        name: "category"
+        description: "Name of commands category"
+      
+      command:
+        name: "command"
+        description: "Name of bot command"
+    
+    examples:
+    - values: null
+      brief: "Get a quick reference guide for all bot categories and their associated commands."
+    - values: "help"
+      brief: "Get complete help on the `{prefix}help` command"
+    - values: "info"
+      brief: "Get full details on the `Information` category"
+    
+    response_home:
+      title: "Command reference"
+      comment: "Here you can find information about commands and their categories! To view a description of the commands in a category, click on the `More` button next to the category."
+      detail_button_name: "More"
+    
+    response_category:
+      title: "`{name}` category reference"
+      back_button_name: "Back"
+      detail_button_name: "More"
+    
+    response_command:
+      title: "{command} command"
+      fields:
+        aliases: "Aliases: {aliases}"
+        requirements: "Requirements: {requirements}"
+      
+      usage: "Usage"
+      examples: "Examples"
+      footer: "`[]` — optional argument, `<>` - required argument; `|` — option to choose."

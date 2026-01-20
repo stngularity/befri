@@ -1,0 +1,127 @@
+# The bot token must be stored in the environment under the key `BOT_TOKEN`.
+# DO NOT DISTRIBUTE THE VALUE OF THIS VARIABLE FOR SECURITY REASONS!
+#
+# If  you specify an incorrect  token in this variable or do not specify  it at
+# all, the bot will not start.
+# 
+# How to get?
+# Go to the Discord Developer Portal, then select the bot you want there. After
+# that, go to the `Bot` tab and click `Reset Token` in the `BOT_TOKEN` variable,
+# then click on `Copy`.
+
+# The prefix for using the text-commands (string)
+# If you specify null, users will not be able to use text-commands.
+# By default, "b!"
+prefix: "b!"
+
+# The logger settings
+# TODO
+logger:
+  # The logger output to file settings
+  file:
+    # The maximum level of logs output to this type of output (string)
+    # If null is specified, this type of logger output will not work
+    # May have one of the following values: info, warn, error, debug
+    # By default, null
+    level: debug
+
+    # Log filename (string)
+    # Please note that the name will be processed using `datetime.strftime`.
+    # By default, "logs/%d.%m.%Y.log"
+    filename: "logs/%d.%m.%Y.log"
+
+  # The logger output to console settings
+  console:
+    # The maximum level of logs output to this type of output (string)
+    # If null is specified, this type of logger output will not work
+    # May have one of the following values: info, warn, error, debug
+    # By default, null
+    level: debug
+
+# The lavalink settings
+# Lavalink is using in Music extension
+lavalink:
+  # The Lavalink's nodes (object list)
+  #  - host       - the host of the node (string)
+  #  - port       - the port of the node (positive integer)
+  #  - password   - the password to authorize in node (string)
+  #  - region     - the region of the node (string)
+  #  - name       - name of the node (string)
+  #                 AUTO - automatically composes a name based on region and node number
+  #  - ssl        - whether SSL should be used when connecting to a node (boolean)
+  nodes:
+    - host: "127.0.0.1"
+      port: 2333
+      password: "youshallnotpass"
+      region: "us"
+      name: AUTO
+      ssl: false
+
+# The database settings (MongoDB)
+database:
+  # The host of the database (string)
+  # By default, "127.0.0.1"
+  host: "127.0.0.1"
+
+  # The port of the database (positive integer)
+  # By default, 27017
+  port: 27017
+
+  # The username to authorize in database (string)
+  username: "admin"
+
+  # The password to authorize in database (string)
+  password: ""
+
+  # The name of the database (string)
+  # By default, "berfi"
+  database: "berfi"
+
+  # The prefix of collections in database (string)
+  # If null or "" is specified, collections will not be prefixed
+  # By default, "berfi_"
+  prefix: "berfi_"
+
+# The cache settings
+cache:
+  # The limit of message caching (positive integer)
+  # If you specify null, message caching will be disabled.
+  # By default, 1000
+  max_messages: 1000
+
+# The developer IDs of the bot (integer list)
+# Users on this list will have access to developer commands (e.g., `/eval`)
+# Also, users on this list will be ignored by some checks.
+developers:
+  - 813065322453925940  # @stngularity
+
+# Who the bot can mention in its messages (booleans)
+allowed_mentions:
+  everyone: false
+  users: false
+  roles: false
+  replied_user: false
+
+# Bot presence settings
+presence:
+  # The status of the bot (string)
+  # May have one of the following values: online, offline, idle, dnd
+  # By default, "online"
+  status: online
+
+  # Bot's activity settings
+  activity:
+    # The type of the bot's activity (string)
+    # If null is specified, the bot will have no activity
+    # May have one of the following values: game, listen, watch, compete, stream, custom
+    # By default, null
+    type: custom
+
+    # The name of the activity (string)
+    # By default, null
+    name: "🍃 Hi! | b!help or /help"
+
+    # The URL of the stream (string)
+    # Only for `stream` activity
+    # By default, null
+    url: null

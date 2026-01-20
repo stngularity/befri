@@ -1,0 +1,27 @@
+# The configuration of project
+[project]
+name = "befri"
+authors = [{name = "stngularity", email = "stngularity@gmail.com"}]
+description = "A friendly bot to assist with various server tasks"
+requires-python = ">=3.11"
+
+# The configuration for "iSort" tool
+[tool.isort]
+profile = "black"
+combine_as_imports = true
+combine_star = true
+line_length = 120
+
+# The configuration for "PyRight" tool
+[tool.pyright]
+include = ["src/*"]
+exclude = ["**/__pycache__"]
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportUnusedImport = "error"
+pythonVersion = "3.11"
+typeCheckingMode = "basic"
+
+# The configuration for "PyLint" tool
+[tool.pylint]
+max-line-length = 120
+disable = []
