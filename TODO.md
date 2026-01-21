@@ -1,5 +1,6 @@
 ## TODO list
 - [ ] Finish writing this list
+- [ ] Update icons (and add to repo)
 - [ ] The basis of the bot
   - [ ] Finish the configuration file
   - [ ] Add checks for configuration
@@ -15,6 +16,7 @@
 - [ ] Extension `Advanced Logs`
 - [ ] Extension `Roles Utils` (+verification +roles for interaction +roles for time)
 - [ ] Extension `Private Voice Channels`
+- [ ] Extension `Events` (+giveaways)
 - [ ] Extension `Tickets`
 - [ ] Extension `Settings`
 - [ ] Extension `Miscellaneous` (`Utilities`)
