@@ -6,11 +6,9 @@
 <a href="https://github.com/stngularity/befri"><img src="https://img.shields.io/github/license/stngularity/befri?color=%2379a051&label=license"></a>
 
 ## Notification
-This project was created as an experiment. Basically, I'm just "training" my programming skills.
+This project was created as an experiment. Basically, I'm just "training" my programming skills. My code may look scary, unreadable, or inefficient. If you notice anything like that, please let me know, and I'll try to fix it.
 
-My code may look scary, unreadable, or inefficient. If you notice anything like that, please let me know, and I'll try to fix it.
-
-Thank you for reading this note.
+Thank you for reading this note.<br/>
 Yours, still nameless, stngularity.
 
 ## What it is?
