@@ -1,5 +1,5 @@
 colors:
-  brand: "2b2d31"
+  brand: "79a051"
   error: "e74f4f"
 
 emojis:
@@ -60,7 +60,3 @@ emojis:
   verified_bot_dev: "<:b_verified_bot_deveveloper:1254868847484342272>"
   bug_hunter_gold: "<:b_bug_hunter_gold:1254868828286881894>"
   staff: "<:b_discord_staff:1254868829570338876>"
-
-icons:
-  # Icons
-  tools: "https://i.imgur.com/SneIgJJ.png"

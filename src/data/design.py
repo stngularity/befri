@@ -52,14 +52,6 @@ class Design:
 
         return Design._data.get(f"emojis.{name}", type=str, default="")
 
-    @staticmethod
-    def icon(name: str) -> str:
-        """`str`: Returns icon by specified :param:`name`"""
-        if Design._data is None:
-            return ""
-
-        return Design._data.get(f"icons.{name}", type=str, default="")
-
 class EmojisFormat:
     """The interface for using emojis in localization"""
 
