@@ -7,11 +7,27 @@
   - [ ] Controller for MongoDB
 - [ ] Extension `Information`
   - [ ] Finish the `/help` command
+  - [ ] `/info` command
+  - [ ] `/stats` command
+  - [ ] `/user` command
+  - [ ] `/guild` command
+  - [ ] `/invite` command
+  - [ ] `/emoji` command
+  - [ ] `/sticker` command
 - [ ] Extension `Development`
+  - [ ] `/load` command
+  - [ ] `/unload` command
+  - [ ] `/reload` command
 - [ ] Extension `Entertainment` (+roleplay)
 - [ ] Extension `Moderation` (+automod)
 - [ ] Extension `Economy`
 - [ ] Extension `Ranking` (levels)
+  - [ ] `/rank` command
+  - [ ] `/leaders` command
+  - [ ] `/experience` command
+    - [ ] `/experience add` command
+    - [ ] `/experience remove` command
+    - [ ] `/experience set` command
 - [ ] Extension `Clans`
 - [ ] Extension `Advanced Logs`
 - [ ] Extension `Roles Utils` (+verification +roles for interaction +roles for time)
@@ -20,9 +36,28 @@
 - [ ] Extension `Tickets`
 - [ ] Extension `Settings`
 - [ ] Extension `Miscellaneous` (`Utilities`)
+  - [ ] `/sauce` command
+  - [ ] `/avatar` command
+  - [ ] `/math` command
 - [ ] Extension `Music`
   - [ ] Client for LavaLink
+  - [ ] `/play` command
+  - [ ] `/stop` command
+  - [ ] `/pause` command
+  - [ ] `/resume` command (it may be inside `/pause`)
+  - [ ] `/queue` command
+    - [ ] Get (`/queue`)
+    - [ ] Remove (`/queue remove`)
+    - [ ] Promote (`/queue promote`)
+    - [ ] Demote (`/queue demote`)
+  - [ ] `/current` command
+  - [ ] `/skip` command
+  - [ ] `/shuffle` command
+  - [ ] `/repeat` command
+  - [ ] `/rewind` command
+  - [ ] `/forward` command
+  - [ ] `/volume` command
 
 ```
-Plans as of January 21, 2026.
+Plans as of February 4, 2026.
 ```
