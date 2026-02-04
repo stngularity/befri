@@ -36,6 +36,9 @@ emojis:
   heart: "<:i_heart:1463219489226363133>"
   tea: "<:i_tea:1463221302520320082>"  # TODO
 
+  # Errors
+  error: "<:e_error:1273385984813432942>"
+
   # Logos
   discord_py: "<:l_discord_py:1254868528398336072>"
   python: "<:l_python:1254868531036688434>"

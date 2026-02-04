@@ -6,6 +6,7 @@
 import os
 import asyncio
 import traceback
+import logging
 from datetime import datetime
 from typing import Any, Sequence
 
@@ -21,6 +22,8 @@ from .loader import ExtensionLoader
 from .logger import Logger
 
 __all__ = ("Befri",)
+
+logging.basicConfig(level=logging.ERROR)
 
 
 class Befri(commands.Bot):
@@ -89,8 +92,9 @@ class Befri(commands.Bot):
 
     async def on_command_error(self, _, exception: commands.CommandError) -> None:
         """Handles the bot's errors"""
-        component = traceback.TracebackException.from_exception(exception).filename[:-3]
-        self.logger.critical("Unexpected error during command execution:", component=component)
+        component = traceback.TracebackException.from_exception(exception)
+        print(dir(component))
+        self.logger.critical("Unexpected error during command execution:", component="component")
         self.logger.write_exception(exception)
 
     async def sync_commands(self) -> None:

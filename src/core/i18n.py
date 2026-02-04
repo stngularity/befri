@@ -187,14 +187,14 @@ class ContextLocalization:
             The dot-separated string key to get text from localization"""
         return key if self._ctx.command is None else self.get_text(f"commands.{self._ctx.command.name}.{key}", **kwargs)
 
-    def get_text(self, key: str, **kwargs) -> str:
+    def get_text(self, key: str, default: Any | None = None, **kwargs) -> str:
         """`str`: Gets the translated text for the specified :param:`key`
 
         Parameters
         ----------
         key: `str`
             The dot-separated string key to get text from localization"""
-        output = self._package.data.get(key, key, type=str)
+        output = self._package.data.get(key, default or key, type=str)
         return output.format(e=EmojisFormat(), developer=self._ctx.bot.__developer__,
                              developer_url=self._ctx.bot.__developer_url__, **kwargs)
 

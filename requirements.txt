@@ -3,7 +3,7 @@ discord.py[speed]                                # discord.py     / discord API
 aiohttp[speedups]                                # aiohttp        / network
 
 # Parsers
-# pysimdjson                                       # simdjson       / JSON
+pysimdjson                                       # simdjson       / JSON
 ruamel.yaml                                      # ruamel.yaml    / yaml
 packaging                                        # packaging      / versions
 python-dotenv                                    # dotenv         / .env

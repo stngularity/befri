@@ -11,6 +11,15 @@ categories:
     aliases: [ "informational" ]
     description: "Commands that provide some kind of information"
   
+  misc:
+    name: "Miscellaneous"
+    aliases: []
+    description: ""
+
+none:
+  var1: "No"
+  var2: "Not specified"
+
 commands:
   # [ /help [command] [category] ] [ b!help [command | category] ] Command reference
   help:
@@ -53,3 +62,42 @@ commands:
       usage: "Usage"
       examples: "Examples"
       footer: "`[]` — optional argument, `<>` - required argument; `|` — option to choose."
+
+  # [ /sauce [message | image link] ] [ b!help [message | image link] ] Searching for the source of the specified image
+  sauce:
+    name: "sauce"
+    aliases: [ "source", "find" ]
+    description: "Finds anime based on the specified frame from it"
+    usage: "[link to image | link to message | message ID]"
+  
+    arguments:
+      query:
+        name: "query"
+        description: "Link to image, link to message, or message ID"
+
+    errors:
+
+    result:
+      title: "Search results"
+      fields:
+        title: "Title: {title}"
+        genres: "Genres: {genres}"
+        notes: "Notes: {notes}"
+        other_titles: "Other titles:"
+        similarity: "Similarity: {similarity}"
+        episode: "Episode: {episode}"
+        frame: "Frame: {frame}"
+      
+      metadata: "Metadata"
+
+      buttons:
+        myanimelist: "MyAnimeList"
+
+      notes:
+        adult: "18+"
+
+      seasons:
+        winter: "Winter"
+        summer: "Summer"
+        spring: "Spring"
+        autumn: "Autumn"

@@ -11,6 +11,22 @@ categories:
     aliases: [ "инфо" ]
     description: "Команды, предоставляющие какую-либо информацию"
   
+  misc:
+    name: "Разное"
+    aliases: []
+    description: ""
+  
+genres:
+  action: "Экшн"
+  comedy: "Комедия"
+  drama: "Драма"
+  fantasy: "Фэнтези"
+  hentai: "Хентай"
+
+none:
+  var1: "Нет"
+  var2: "Не указано"
+
 commands:
   # [ /help [command] [category] ] [ b!help [command | category] ] Command reference
   help:
@@ -53,3 +69,42 @@ commands:
       usage: "Использование"
       examples: "Примеры"
       footer: "`[]` — необязатный аргумент, `<>` - обязательный; `|` — вариант на выбор."
+
+  # [ /sauce [message | image link] ] [ b!help [message | image link] ] Searching for the source of the specified image
+  sauce:
+    name: "соус"
+    aliases: [ "источник", "найди" ]
+    description: "Находит аниме по указанному кадру из него"
+    usage: "[ссылка на изображение | ссылка на сообщение | ID сообщения]"
+
+    arguments:
+      query:
+        name: "запрос"
+        description: "Ссылка на изображение, ссылка на сообщение или ID сообщения"
+    
+    errors:
+
+    result:
+      title: "Результаты поиска"
+      fields:
+        title: "Название: {title}"
+        genres: "Жанры: {genres}"
+        notes: "Пометки: {notes}"
+        other_titles: "Другие названия:"
+        similarity: "Схожесть: {similarity}"
+        episode: "Серия: {episode}"
+        frame: "Кадр: {frame}"
+      
+      metadata: "Метаданные"
+
+      buttons:
+        myanimelist: "MyAnimeList"
+
+      notes:
+        adult: "18+"
+
+      seasons:
+        winter: "Зима"
+        summer: "Лето"
+        spring: "Весна"
+        autumn: "Осень"
