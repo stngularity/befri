@@ -20,7 +20,7 @@ command, a list of command aliases, usage help, and usage examples.
 
 # TODO: help for commands
 
-from typing import Any, AsyncGenerator, Callable, Coroutine
+from typing import Any, AsyncGenerator, Callable, Coroutine, Final
 
 import discord
 from discord import app_commands
@@ -29,11 +29,13 @@ from discord.ext import commands
 
 from core import BefriContext, Extension
 from data import Design as D
-from utils import MessageBuilder, button, container, message
+from utils import MessageBuilder, container, message, select, maybe
 
 __all__ = ("help",)
 
 CMB = Coroutine[None, None, MessageBuilder]
+
+CACHE: Final[dict[str, Any]] = {}
 
 
 @commands.hybrid_command(name=ls("help"), description=ls("Reference for bot commands and command categories"))
@@ -77,6 +79,29 @@ async def get_command_list_for(extension: Extension, ctx: BefriContext) -> Async
 
         yield app_command
 
+def get_select_options(ctx: BefriContext, current: str) -> list[discord.SelectOption]:
+    """Returns a list of options for the help command"""
+    if "options" not in CACHE:
+        CACHE["options"] = {"home": discord.SelectOption(
+            label=ctx.i18n.get_text("commands.help.response_home.title"),
+            value="home"
+        )}
+
+        for id, extension in ctx.bot.loader.extensions.items():
+            name = ctx.i18n.get_text(f"categories.{id}.name")
+            description = ctx.i18n.get_text(f"categories.{id}.description")
+
+            CACHE["options"][id] = discord.SelectOption(
+                label=name,
+                value=id,
+                description=description,
+                emoji=D.emoji(x) if (x := extension.get("icon")) is not None else None
+            )
+    
+    # Yeah, it looks awful, but who cares?
+    return [(discord.SelectOption.from_dict(v.to_dict() | {"default": True}) if k == current else v)  # type: ignore
+            for k, v in CACHE["options"].items()]
+
 async def build_help_home(ctx: BefriContext) -> MessageBuilder:
     """[ `/home` ] Builds the help home page"""
     cont = container()
@@ -86,18 +111,26 @@ async def build_help_home(ctx: BefriContext) -> MessageBuilder:
         icon = D.emoji(extension.get("icon") or "unknown")
         name = ctx.i18n.get_text(f"categories.{id}.name")
 
-        command_list = list()
+        command_list = []
         async for command in get_command_list_for(extension, ctx):
-            command_list.append(f"`{ctx.bot.prefix}{command.name}`" if isinstance(command, commands.HybridCommand) 
+            command_list.append(f"`{ctx.bot.prefix}{command.name}`"
+                                if isinstance(command, commands.HybridCommand) 
                                 else f"</{command.name}:{command.id}>")
 
         cont.separator()
-        cont.section(f"### {icon} {name}", " ".join(command_list), accessory=button(
-            ctx.i("response_home.detail_button_name"), callback=send_help_wrap(ctx, build_help_category, extension)))
+        cont.text(f"### {icon} {name}\n{' '.join(command_list)}")
 
     cont.separator()
     cont.text(f"-# {ctx.i18n.get_text('common.footer')}")
-    return message().container(cont.build())
+
+    cont.action_row(select(
+        id="category",
+        options=get_select_options(ctx, "home"),
+        placeholder=ctx.i("response_home.placeholder"),
+        callback=select_interaction_wrap(ctx)
+    ))
+
+    return message().container(cont)
 
 async def build_help_category(ctx: BefriContext, extension: Extension) -> MessageBuilder:
     """[ `/home [category]` ] Builds the help for category"""
@@ -105,10 +138,7 @@ async def build_help_category(ctx: BefriContext, extension: Extension) -> Messag
     description = ctx.i18n.get_text(f"categories.{extension.id}.description")
 
     cont = container()
-    cont.section(f"### {ctx.i('response_category.title', name=name)}", f"{description}.", accessory=button(
-        ctx.i("response_category.back_button_name"), callback=send_help_wrap(ctx, build_help_home)))
-
-    cont.separator()
+    cont.text(f"### {ctx.i('response_category.title', name=name)}\n{description}.").separator()
 
     i = 0
     async for command in get_command_list_for(extension, ctx):
@@ -124,20 +154,34 @@ async def build_help_category(ctx: BefriContext, extension: Extension) -> Messag
 
     cont.separator()
     cont.text(f"-# {ctx.i('response_command.footer')}")
-    return message().container(cont.build())
 
-def send_help_wrap(
-    ctx: BefriContext,
-    builder: Callable[[BefriContext], CMB] | Callable[[BefriContext, Any], CMB],
-    *args: Any
-) -> Callable[[discord.Interaction], Coroutine[None, None, Any]]:
-    """Yes, wrapper. Yes, to convey context and extra args. Any problems?"""
-    async def send_help(interaction: discord.Interaction) -> Any:
+    cont.action_row(select(
+        id="category",
+        options=get_select_options(ctx, extension.id),
+        placeholder=ctx.i("response_home.placeholder"),
+        callback=select_interaction_wrap(ctx)
+    ))
+
+    return message().container(cont)
+
+def select_interaction_wrap(ctx: BefriContext) -> Callable[[discord.Interaction], Coroutine[None, None, Any]]:
+    """Yes, wrapper. Yes, to convey context. Any problems?"""
+    async def select_interaction(interaction: discord.Interaction) -> Any:
+        value = maybe(interaction.data).get("values", [])[0]
         new_ctx = BefriContext.fake_from_interaction(interaction, message=ctx.message, command=ctx.command)
-        help_page = (await builder(new_ctx, *args)).build_view()
+        
+        extension = ctx.bot.loader.extensions.get(value)
+        if value != "home" and extension is None:
+            ctx.bot.logger.error(f"Unknown extension ID value received: `{value}`")
+            return await interaction.response.defer()
+        
+        help_page = (await build_help_home(new_ctx)
+                     if extension is None 
+                     else await build_help_category(new_ctx, extension))
+    
         if interaction.user != ctx.author:
-            return await interaction.response.send_message(view=help_page, ephemeral=True)
+            return await interaction.response.send_message(view=help_page.build_view(), ephemeral=True)
 
-        await interaction.response.edit_message(view=help_page)
-
-    return send_help
+        await interaction.response.edit_message(view=help_page.build_view())
+    
+    return select_interaction

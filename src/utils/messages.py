@@ -12,7 +12,7 @@ from discord import MediaGalleryItem, ui
 if TYPE_CHECKING:
     from core import BefriContext
 
-__all__ = ("ViewBuilder", "MessageBuilder", "container", "message", "thumbnail", "button", "gallery_item")
+__all__ = ("ViewBuilder", "MessageBuilder", "container", "message", "thumbnail", "button", "select", "gallery_item")
 
 MISSING: Any = discord.utils.MISSING
 
@@ -78,7 +78,10 @@ class MessageBuilder(ViewBuilder):
         self._content = content
         self._poll: discord.Poll | None = None
     
-    def container(self, container: ui.Container) -> Self:
+    def container(self, container: ui.Container | ContainerBuilder) -> Self:
+        if isinstance(container, ContainerBuilder):
+            container = container.build()
+
         self._children.append(container)
         return self
 

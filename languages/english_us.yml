@@ -38,13 +38,11 @@ commands:
     
     response_home:
       title: "Command reference"
-      comment: "Here you can find information about commands and their categories! To view a description of the commands in a category, click on the `More` button next to the category."
-      detail_button_name: "More"
+      comment: "Here you can find information about commands and their categories! To view the description of the commands in a category, select that category below."
+      placeholder: "Select a category of commands"
     
     response_category:
       title: "`{name}` category reference"
-      back_button_name: "Back"
-      detail_button_name: "More"
     
     response_command:
       title: "{command} command"
