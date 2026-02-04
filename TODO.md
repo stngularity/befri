@@ -19,6 +19,16 @@
   - [ ] `/unload` command
   - [ ] `/reload` command
 - [ ] Extension `Entertainment` (+roleplay)
+  - [ ] Action commands (`/pat`, `/hug`, `/kiss`, `/slap`, `/punch`, `/tickle`, `/lick`, `/cry`, `/wink`, `/feed`, `/bite`, `/cuddle`, `/dance`, `/kill`, `/poke`)
+  - [ ] Emotion command (`/panik`, `/love`, `/smug`)
+  - [ ] Random pictures (`/cat`, `/dog`, `/fox`, `/panda`, `/bird`, `/koala`, `/lizard`, `/snake`, `/squirrel`, `/wolf`, `/frog`, `/kangaroo`, `/raccoon`, `/whale`, `/landscape`, `/waifu`)
+  - [ ] Random (`/8ball`, `/quote`, `/dice`, `/coin`)
+  - [ ] Simple games (`/rps`, `/tic-tac-toe`)
+  - [ ] The Bunker game (`/bunker`)
+  - [ ] The Mafia game (`/mafia`)
+- [ ] Extension `NSFW` *(Well, I did say I'd add whatever came to mind, didn't I?)*
+  - [ ] Actions commands ()
+  - [ ] Random pictures ()
 - [ ] Extension `Moderation` (+automod)
 - [ ] Extension `Economy`
 - [ ] Extension `Ranking` (levels)
@@ -39,6 +49,8 @@
   - [ ] `/sauce` command
   - [ ] `/avatar` command
   - [ ] `/math` command
+  - [ ] `/random` command
+  - [ ] `/qr` command (?)
 - [ ] Extension `Music`
   - [ ] Client for LavaLink
   - [ ] `/play` command
